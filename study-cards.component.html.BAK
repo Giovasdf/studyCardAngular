@@ -1,0 +1,45 @@
+<div style="margin: 50px auto;width: 50%;">
+    <h2>Please select a file: </h2>
+    <input class="button is-primary" type="file" (input)="onFileChange($event)" multiple="false">
+
+</div>
+
+
+<button class="button is-info mb-5" (click)="obtenerPalabraAleatoria()">Nueva Palabra</button>
+
+
+
+<ngx-flip-card [easing]="'easeOut'" [animationDuration]="2000">
+    <div card-front>
+
+      <div class="card">
+  <div class="card-content">
+    <p class="title">
+      {{englishWord}}
+    </p>
+    <p class="subtitle">
+      English Word
+    </p>
+  </div>
+  </div>
+
+    </div>
+    <div card-back>
+    <div class="card">
+  <div class="card-content">
+    <p class="title">
+      {{nativeWord}}
+    </p>
+
+    <p class="subtitle">
+      Native Word
+    </p>
+  </div>
+
+
+    </div>
+
+    </div>
+
+</ngx-flip-card>
+

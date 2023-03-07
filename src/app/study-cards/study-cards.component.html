@@ -1,0 +1,52 @@
+<div style="margin: 50px auto; width: 50%">
+  <h2>Please select a file:</h2>
+  <input
+    class="button is-primary"
+    type="file"
+    (input)="onFileChange($event)"
+    multiple="false"
+  />
+</div>
+
+<button class="button is-info mb-5" (click)="obtenerPalabraAleatoria()">
+  New Card
+</button>
+
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <ngx-flip-card
+        id="myCard"
+        [easing]="'easeOut'"
+        [isBackSide]="false"
+        [animationDuration]="2000"
+        (click)="flipCard()"
+      >
+        <div card-front>
+          <div class="card">
+            <div class="card-content">
+              <h1 style="font-size: 80px" class="title is-1">
+                {{ isFlipped ? "" : englishWord }}
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div card-back>
+          <div class="card">
+            <div class="card-content">
+              <h1 style="font-size: 80px" class="title is-1">
+                {{ isFlipped ? nativeWord : "" }}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </ngx-flip-card>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h2 class="title is-2">Correct Answer: {{ cantCorrectas }}</h2>
+  <button class="button is-success" (click)="sumarCorrecta()">Correct</button>
+  <button class="button is-danger" (click)="marcarIncorrecta()">Wrong</button>
+</div>
